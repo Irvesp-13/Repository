@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>RamaPelicula</title>
+    <style>
+        body {
+            background-image: url("fondo3.webp");
+        }
+
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <font face="Tahoma" font size="5px" font color="white">
+        <h1>
+            <center>Star Wars</center>
+        </h1>
+    </font>
+    <font color="red">
+        <h3 style="background-color: red;" <center>.</center>
+        </h3>
+    </font>
+    <p></p>
+    <font face="Tahoma" font color="white">
+        <h1>
+            <center>Saga de peliculas:</center>
+        </h1>
+    </font>
+    <div style="margin-left: 2%;">
+        <marquee behavior="slide" direction="up" loop="1000000">
+            <font face="Tahoma" font color="Yellow">
+                <h3>Episodio I: La Amenaza Fantasma (1999)</h3>
+                <h3>Episodio II: El Ataque de los Clones (2002)</h3>
+                <h3>Episodio III: La Venganza de los Sith (2005)</h3>
+                <h3>Han Solo (2018)</h3>
+                <h3>Rogue One (2016)</h3>
+                <h3>Episodio IV: Una Nueva Esperanza (1977)</h3>
+                <h3>Episodio V: El Imperio Contraataca (1980)</h3>
+                <h3>Episodio VI: El Retorno del Jedi (1983)</h3>
+                <h3>Episodio VII: El despertar de la fuerza (2015)</h3>
+                <h3>Episodio VIII: Los Ultimos Jedi (2017)</h3>
+                <h3>Episodio IX: El Ascenso de Skywalker (2019)</h3>
+            </font>
+        </marquee>
+    </div>
+    <div style="margin-left: 2%;">
+        <button id="cambiarFondo" onclick="cambiarFondo()">Cambiar fondo</button>
+    </div>
+    <div style="margin-left: 2%;">
+        <font face="Tahoma" font color="Yellow">
+            <p id="texto">Texto "p" que cambia</p>
+        </font>
+        <button onclick="cambiarTexto()">Cambiar</button>
+    </div>
+    <div style="margin-left: 50%; margin-top: -400px;">
+        <img id="imagen" src="StarWars.webp" width="600" height="400">
+    </div>
+    <div style="margin-left: 50%;">
+        <button onclick="cambiarImagen()">Cambiar imagen</button>
+        <button onclick="restablecerImagen()">Restablecer imagen</button>
+    </div>
+    <div style="margin-left: 2%;">
+        <font face="Tahoma" font color="Yellow">
+            <h2 id="mensaje">Hola mundo</h2>
+        </font>
+        <button onclick="ocultarMensaje()">Ocultar mensaje</button>
+    </div>
+    <div id="miDiv"></div>
+    <button onclick="escribirTexto()">Escribir en el div</button>
+    <p></p>
+    <font font color="Red">
+        <span>&copy; 2023 Irving Espinosa</span>
+    </font>
+    <script>
+        function cambiarFondo() {
+            document.body.style.backgroundImage = "url('negro.png')";
+        }
+        function cambiarTexto() {
+            document.getElementById("texto").innerHTML = "El texto a sido cambiado";
+        }
+        var imagen = document.getElementById("imagen");
+        var imagenOriginalSrc = imagen.src;
+
+        function cambiarImagen() {
+            imagen.src = "DarthVader.jpg";
+        }
+
+        function restablecerImagen() {
+            imagen.src = imagenOriginalSrc;
+        }
+
+        function ocultarMensaje() {
+            var mensaje = document.getElementById("mensaje");
+            mensaje.style.display = "none";
+        }
+
+        function escribirTexto() {
+            var div = document.getElementById("miDiv");
+            var h1 = document.createElement("h1");
+            h1.textContent = "Este texto no lo escribió Irving, lo escribió JavaScript";
+            h1.style.color = "yellow";
+            div.appendChild(h1);
+        }
+    </script>
+</body>
+
+</html>
