@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Respuesta del Registro</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script>
+    function mostrarInformacion() {
+      var params = new URLSearchParams(window.location.search);
+
+      var nombres = params.get('nombres');
+      var apellidos = params.get('apellidos');
+      var correo = params.get('correo');
+      var telefono = params.get('telefono');
+      var fechaNacimiento = new Date(params.get('fechaNacimiento'));
+
+      var nombresElement = document.createElement('h1');
+      nombresElement.textContent = nombres;
+      document.body.appendChild(nombresElement);
+
+      var apellidosElement = document.createElement('h2');
+      apellidosElement.textContent = apellidos;
+      document.body.appendChild(apellidosElement);
+
+      var correoElement = document.createElement('a');
+      correoElement.href = 'mailto:' + correo;
+      correoElement.textContent = correo;
+      document.body.appendChild(correoElement);
+      
+      var telefonoElement = document.createElement('a');
+      telefonoElement.href = 'tel:' + telefono;
+      telefonoElement.textContent = telefono;
+      document.body.appendChild(telefonoElement);
+
+      var edad = calcularEdad(fechaNacimiento);
+      var edadElement = document.createElement('p');
+      edadElement.textContent = 'Edad: ' + edad + ' años';
+      document.body.appendChild(edadElement);
+    }
+
+    function calcularEdad(fechaNacimiento) {
+      var hoy = new Date();
+      var edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+      var mes = hoy.getMonth() - fechaNacimiento.getMonth();
+      if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+        edad--;
+      }
+      return edad;
+    }
+
+    window.onload = mostrarInformacion;
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Información del Registro</h1>
+  </div>
+</body>
+</html>
